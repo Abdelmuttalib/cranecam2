@@ -33,7 +33,7 @@ import { api } from "@/lib/api";
 export function RegisterPageView() {
   return (
     <>
-      <Seo title="Sign in" />
+      <Seo title="Register" />
 
       <LoginLayout>
         <div className="flex w-full max-w-sm flex-col rounded-lg">

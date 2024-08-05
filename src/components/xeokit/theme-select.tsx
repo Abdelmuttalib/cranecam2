@@ -1,9 +1,29 @@
 import * as React from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { CheckIcon } from "lucide-react";
+import { CheckIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
+import { IconButton } from "../ui/icon-button";
+
+export function ThemeSwitch() {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <IconButton
+      variant="material"
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      size="xs"
+      className="-ml-2 h-8 w-8"
+    >
+      {theme === "light" ? (
+        <SunIcon className="w-4" />
+      ) : (
+        <MoonIcon className="w-4" />
+      )}
+    </IconButton>
+  );
+}
 
 export function ThemeSelect() {
   const { theme: currentTheme, setTheme, themes } = useTheme();

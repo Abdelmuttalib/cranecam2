@@ -147,7 +147,7 @@ const DialogRoot = React.forwardRef<
     <Dialog
       as="div"
       ref={ref}
-      className={cn("relative z-10", className)}
+      className={cn("relative z-[999999]", className)}
       onClose={onClose}
       {...props}
     >

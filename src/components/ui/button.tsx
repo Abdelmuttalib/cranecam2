@@ -38,7 +38,7 @@ const buttonVariants = cva(
         transparent: "bg-transparent text-foreground",
 
         material:
-          "bg-[#303030] text-white hover:bg-[#404040] active:bg-[#202020]",
+          "bg-white hover:bg-neutral-100 text-foreground border shadow dark:border-none dark:shadow-none dark:bg-[#303030] dark:text-white dark:hover:bg-[#404040] dark:active:bg-[#202020]",
       },
       size: {
         default: "px-4 h-10",

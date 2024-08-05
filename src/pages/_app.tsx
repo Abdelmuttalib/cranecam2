@@ -19,8 +19,8 @@ const MyApp: AppType<{ session: Session | null }> = ({
       <ThemeProvider
         attribute="class"
         themes={["light", "dark", "system"]}
-        defaultTheme="system"
-        enableSystem
+        defaultTheme="light"
+        // enableSystem
       >
         <Toaster
           position="bottom-right"

@@ -229,7 +229,7 @@ export function Timeline() {
   const { setCompareMode } = useRenderView();
 
   return (
-    <div className="flex h-24 w-full bg-layer-3 dark:bg-[#424242]">
+    <div className="flex h-24 w-full bg-[#f2f2f2] dark:bg-[#424242]">
       <div className="flex h-full w-full items-end divide-x divide-border-light">
         {Object.keys(groupedDates).map((month) => {
           const datesInMonth = groupedDates[month];
@@ -295,7 +295,7 @@ export function Timeline() {
               </div>
 
               {/* Month */}
-              <div className="flex h-[17px] w-full items-center justify-center space-x-1 border-t border-t-border-light bg-layer-2 text-xs font-normal text-foreground dark:bg-[#212121]">
+              <div className="flex h-[17px] w-full items-center justify-center space-x-1 border-t border-t-border bg-layer-2 text-xs font-normal text-foreground dark:border-t-border-light dark:bg-[#212121]">
                 <CalendarIcon className="w-3" />
                 <span>{month}</span>
               </div>
@@ -348,7 +348,7 @@ export function Timeline() {
           );
         })} */}
       </div>
-      <div className="flex items-center justify-center border-l border-t border-zinc-700 bg-[#212121] px-3">
+      <div className="flex items-center justify-center border-l border-t bg-white px-3 dark:border-zinc-700 dark:bg-[#212121]">
         <Button
           // onClick={onCompare}
           className="space-x-1 rounded-full bg-[#0191ea] font-semibold"

@@ -69,7 +69,7 @@ import {
 import useModalState from "@/hooks/use-modal-state";
 import CustomDialog from "../ui/animated-dialog";
 import { ShareDialog } from "./share-dialog";
-import { ThemeSelect } from "./theme-select";
+import { ThemeSelect, ThemeSwitch } from "./theme-select";
 import { Typography } from "@/components//ui/typography";
 import { IconButton } from "../ui/icon-button";
 import { Timeline } from "@/components/xeokit/data-select-timeline";
@@ -1389,15 +1389,15 @@ export default function Xeo() {
             <i className="far fa-3x fa-question-circle"></i>
           </label>
           <div className="absolute bottom-0 left-0 z-20 h-full w-full max-w-sm bg-background p-4 px-2 text-foreground dark:bg-[#303030]">
-            <div className="relative bg-red-300">
-              <div className="z-90 absolute left-full top-[47rem] ml-8 flex flex-col gap-x-1 overflow-hidden rounded-lg bg-transparent">
+            <div className="relative">
+              <div className="z-90 absolute left-full top-full ml-8 flex flex-col gap-x-1 overflow-hidden rounded-lg bg-transparent">
                 {/* <div className="absolute rounded flex gap-x-1 bottom-0 left-4 z-20"> */}
                 <div className="flex gap-x-2">
                   <div className="rounded-lg bg-blue-400/40 p-1.5 text-white">
                     <span>3D</span>
                   </div>
 
-                  <div className="flex gap-x-1 rounded-l-lg bg-[#303030] px-1">
+                  <div className="flex gap-x-1 rounded-l-lg bg-white px-1 dark:bg-[#303030]">
                     <CustomDialog
                       title="Settings"
                       open={settingsDialogOpen}
@@ -1406,7 +1406,6 @@ export default function Xeo() {
                         <IconButton
                           size="xs"
                           onClick={() => setSettingsDialogOpen(true)}
-                          className="bg-[#303030] text-white"
                           variant="material"
                         >
                           <SettingsIcon />
@@ -1490,7 +1489,6 @@ export default function Xeo() {
                     <IconButton
                       size="xs"
                       onClick={() => captureScreenshot()}
-                      className="bg-[#303030] text-white"
                       variant="material"
                     >
                       <CameraIcon className="h-5 w-5" />
@@ -1724,7 +1722,6 @@ export default function Xeo() {
                   variant={mode === modeButton.mode ? "primary" : "material"}
                   className={cn(
                     "focus:ring-none h-9 w-full rounded-none border-none ring-0 focus:border-none",
-                    "bg-[#303030]",
                   )}
                   onClick={() => {
                     if (mode === "distance") {
@@ -2362,6 +2359,7 @@ function Topbar() {
           <ShareDialog />
           <UserMenu />
           {/* <ThemeSelect /> */}
+          <ThemeSwitch />
           {/* <Button>
       <span className="flex items-center gap-x-2">
         <Share2 className="w-[17px]" />

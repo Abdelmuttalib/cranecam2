@@ -42,7 +42,7 @@ const iconButtonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
 
         material:
-          "bg-[#303030] text-white hover:bg-[#404040] active:bg-[#202020]",
+          "bg-white hover:bg-neutral-100 active:bg-neutral-200/70 text-foreground dark:bg-[#303030] dark:text-white dark:hover:bg-[#404040] dark:active:bg-[#202020]",
       },
       size: {
         default: "w-11 h-11",
