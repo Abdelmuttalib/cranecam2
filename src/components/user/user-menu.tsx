@@ -43,7 +43,6 @@ import { type User as UserType } from "@prisma/client";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 import Image from "next/image";
-import ThemeSwitcher from "../theme-select";
 import { getUserFullName } from "@/lib/user";
 
 {
@@ -100,7 +99,7 @@ export function UserAvatar({
                 className="rounded-full object-cover"
               />
             ) : (
-              <>{user?.firstName ? user.firstName[0] : user.email[0]}</>
+              <>{user?.name && user?.name[0]}</>
             )}
           </div>
         </TooltipTrigger>
@@ -115,9 +114,7 @@ export function UserAvatar({
           )}
           {!user?.image && ( */}
           <div className="text-sm">
-            <p className="font-medium text-gray-100">
-              {user.firstName} {user.lastName}
-            </p>
+            <p className="font-medium text-gray-100">{user.name}</p>
             <p className="text-gray-400">{user.email}</p>
           </div>
         </TooltipContent>
@@ -130,11 +127,9 @@ export function User({ user }: { user: UserType }) {
   return (
     <div className="flex h-fit w-full items-center justify-start gap-3 truncate">
       <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black text-lg text-gray-100">
-        {user?.firstName && user?.firstName[0]}
+        {user?.name && user?.name[0]}
       </div>
-      <p className="truncate font-medium">
-        {user?.firstName} {user?.lastName}
-      </p>
+      <p className="truncate font-medium">{user?.name && user?.name}</p>
     </div>
   );
 }
@@ -143,7 +138,7 @@ export default function UserMenu() {
   const { data: session } = useSession();
   const { push } = useRouter();
 
-  const userFullName = getUserFullName(session?.user as UserType);
+  const userFullName = getUserFullName(session?.user as unknown as UserType);
 
   return (
     <DropdownMenu>
@@ -151,10 +146,10 @@ export default function UserMenu() {
         <Button
           type="button"
           variant="transparent"
-          className="border-foreground-lighter text-foreground-lighter inline-flex h-12 max-w-full items-center gap-x-2 truncate border hover:border-white"
+          className="inline-flex h-12 max-w-full items-center gap-x-2 truncate border border-foreground-lighter text-foreground-lighter hover:border-white"
         >
           <span>
-            <UserAvatar user={session?.user as User} size="sm" />
+            <UserAvatar user={session?.user as unknown as UserType} size="sm" />
           </span>
           <span className="truncate">{userFullName}</span>
         </Button>

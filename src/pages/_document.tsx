@@ -18,7 +18,7 @@ export default function Document() {
         {/* <Script strategy="beforeInteractive" src="/libs/dat.guiParams.min.js" /> */}
 
         {/* <script src="https://cdn.jsdelivr.net/npm/dat.gui/build/dat.gui.min.js"></script> */}
-        <script src="/libs/dat/dat.gui.min.js"></script>
+        <script async src="/libs/dat/dat.gui.min.js"></script>
       </Head>
       <body>
         <Main />

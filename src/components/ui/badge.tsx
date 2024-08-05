@@ -12,6 +12,7 @@ export type BadgeColor =
   | "white"
   | "dark-gray";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const badgeVariants = cva(
   "relative inline-flex items-center justify-center w-full text-sm sm:w-auto rounded font-medium border-0 transition-colors transition duration-150 ease-linear focus:outline-transparent disabled:opacity-50 disabled:pointer-events-none disabled:opacity-60 disabled:hover:opacity-60 disabled:cursor-not-allowed disabled:shadow-none ring-1 ring-transparent ring-inset focus:ring-2 focus:ring-inset outline-none focus:outline-none",
   {

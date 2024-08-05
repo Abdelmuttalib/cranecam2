@@ -86,7 +86,7 @@ export function XeokitProvider({ children }: { children: React.ReactNode }) {
 
     const annotationsPlugin = new AnnotationsPlugin(
       viewer,
-      ANNOTATIONS_PLUGIN_CONFIG
+      ANNOTATIONS_PLUGIN_CONFIG,
     );
 
     setAnnotationsPlugin(annotationsPlugin);
@@ -114,7 +114,7 @@ export function XeokitProvider({ children }: { children: React.ReactNode }) {
         console.log("measurementCancel");
         console.log("origin", distanceMeasurement.origin.entity);
         console.log("target", distanceMeasurement.target.entity);
-      }
+      },
     );
 
     const distanceMeasurementsMouseControl =

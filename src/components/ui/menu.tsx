@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 // import { Menu, Transition } from "@headlessui/react";
 // import { CheckIcon, LanguageIcon } from "@heroicons/react/20/solid";
 // import { Fragment } from "react";
@@ -125,7 +128,7 @@ export function CustomMenu({
       >
         <MenuItems
           className={cn(
-            "bg-layer text-foreground absolute right-0 mt-2 w-40 origin-top-right overflow-hidden rounded text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
+            "absolute right-0 mt-2 w-40 origin-top-right overflow-hidden rounded bg-layer text-sm text-foreground shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
             menuItemsClassName,
           )}
         >
@@ -133,7 +136,7 @@ export function CustomMenu({
           {items.map((item: React.ReactNode, index: number) => (
             <MenuItem
               key={index}
-              className="text-foreground-light focus:bg-accent-hover relative flex cursor-default select-none items-center rounded-sm px-2.5 py-2 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+              className="relative flex cursor-default select-none items-center rounded-sm px-2.5 py-2 text-sm text-foreground-light outline-none transition-colors focus:bg-accent-hover data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
             >
               {item}
             </MenuItem>

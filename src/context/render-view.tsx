@@ -37,7 +37,7 @@ export function RenderViewProvider({
 }) {
   const processedData = organizeData(data);
 
-  const [selectedDate, setSelectedDate] = useState(processedData[0]);
+  const [selectedDate, setSelectedDate] = useState(processedData[0]!);
 
   const handleDateChange = (date: DateField) => {
     setSelectedDate(date);

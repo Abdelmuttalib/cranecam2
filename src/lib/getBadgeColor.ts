@@ -1,93 +1,89 @@
-import type { BadgeColor } from "@/components/ui/badge";
-import {
-  InvitationStatus,
-  ProjectStatus,
-  Role,
-  TaskStatus,
-} from "@prisma/client";
-import { Priority } from "./enums";
+console.log("BADGE COLOR");
+// import type { BadgeColor } from "@/components/ui/badge";
 
-export function getInviteStatusBadgeColor(
-  status: InvitationStatus
-): BadgeColor {
-  switch (status) {
-    case InvitationStatus.INVITED:
-      return "blue";
+// import { Priority } from "./enums";
 
-    case InvitationStatus.REGISTERED:
-      return "green";
+// export function getInviteStatusBadgeColor(
+//   status: InvitationStatus
+// ): BadgeColor {
+//   switch (status) {
+//     case InvitationStatus.INVITED:
+//       return "blue";
 
-    default:
-      return "gray";
-  }
-}
+//     case InvitationStatus.REGISTERED:
+//       return "green";
 
-export function getUserRoleBadgeColor(status: Role): BadgeColor {
-  switch (status) {
-    case Role.ADMIN:
-      return "blue";
+//     default:
+//       return "gray";
+//   }
+// }
 
-    case Role.MEMBER:
-      return "yellow";
+// export function getUserRoleBadgeColor(status: Role): BadgeColor {
+//   switch (status) {
+//     case Role.ADMIN:
+//       return "blue";
 
-    default:
-      return "gray";
-  }
-}
+//     case Role.MEMBER:
+//       return "yellow";
 
-export function getProjectStatusBadgeColor(status: ProjectStatus): BadgeColor {
-  switch (status) {
-    case ProjectStatus.PLANNED:
-      return "blue";
+//     default:
+//       return "gray";
+//   }
+// }
 
-    case ProjectStatus.IN_PROGRESS:
-      return "yellow";
+// export function getProjectStatusBadgeColor(status: ProjectStatus): BadgeColor {
+//   switch (status) {
+//     case ProjectStatus.PLANNED:
+//       return "blue";
 
-    case ProjectStatus.COMPLETED:
-      return "green";
+//     case ProjectStatus.IN_PROGRESS:
+//       return "yellow";
 
-    default:
-      return "gray";
-  }
-}
+//     case ProjectStatus.COMPLETED:
+//       return "green";
 
-export function getTaskStatusBadgeColor(status: TaskStatus): BadgeColor {
-  switch (status) {
-    case TaskStatus.BACKLOG:
-      return "gray";
+//     default:
+//       return "gray";
+//   }
+// }
 
-    case TaskStatus.TO_DO:
-      return "blue";
+// export function getTaskStatusBadgeColor(status: TaskStatus): BadgeColor {
+//   switch (status) {
+//     case TaskStatus.BACKLOG:
+//       return "gray";
 
-    case TaskStatus.IN_PROGRESS:
-      return "yellow";
+//     case TaskStatus.TO_DO:
+//       return "blue";
 
-    case TaskStatus.IN_REVIEW:
-      return "blue";
+//     case TaskStatus.IN_PROGRESS:
+//       return "yellow";
 
-    case TaskStatus.COMPLETED:
-      return "green";
+//     case TaskStatus.IN_REVIEW:
+//       return "blue";
 
-    case TaskStatus.CANCELED:
-      return "dark-gray";
+//     case TaskStatus.COMPLETED:
+//       return "green";
 
-    default:
-      return "gray";
-  }
-}
+//     case TaskStatus.CANCELED:
+//       return "dark-gray";
 
-export function getTaskPriorityBadgeColor(status: Priority): BadgeColor {
-  switch (status) {
-    case Priority.HIGH:
-      return "red";
+//     default:
+//       return "gray";
+//   }
+// }
 
-    case Priority.MEDIUM:
-      return "yellow";
+// export function getTaskPriorityBadgeColor(status: Priority): BadgeColor {
+//   switch (status) {
+//     case Priority.HIGH:
+//       return "red";
 
-    case Priority.LOW:
-      return "green";
+//     case Priority.MEDIUM:
+//       return "yellow";
 
-    default:
-      return "green";
-  }
-}
+//     case Priority.LOW:
+//       return "green";
+
+//     default:
+//       return "green";
+//   }
+// }

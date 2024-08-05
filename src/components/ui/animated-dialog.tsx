@@ -11,7 +11,7 @@ import { Typography } from "./typography";
 const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof Transition.Child>,
   React.ComponentPropsWithoutRef<typeof Transition.Child>
->(({ className, ...props }, ref) => (
+>(({ className }, ref) => (
   <Transition.Child
     ref={ref}
     as={Fragment}

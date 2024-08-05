@@ -41,7 +41,8 @@ export function DateTimeline() {
       <div className="flex h-full w-full items-end divide-x divide-border-light">
         {Object.keys(groupedDates).map((month) => {
           const datesInMonth = groupedDates[month];
-          const percentageWidth = (datesInMonth.length / totalDates) * 100;
+          const percentageWidth =
+            (datesInMonth?.length ?? 0 / totalDates) * 100;
 
           return (
             <div
@@ -51,7 +52,7 @@ export function DateTimeline() {
             >
               {/* Dates in the month */}
               <div className="flex w-full justify-evenly">
-                {datesInMonth.map((dateObj) => {
+                {datesInMonth?.map((dateObj) => {
                   const { date } = dateObj;
                   const selected = selectedDate.date === date;
 
@@ -232,7 +233,8 @@ export function Timeline() {
       <div className="flex h-full w-full items-end divide-x divide-border-light">
         {Object.keys(groupedDates).map((month) => {
           const datesInMonth = groupedDates[month];
-          const percentageWidth = (datesInMonth.length / totalDates) * 100;
+          const percentageWidth =
+            (datesInMonth?.length ?? 0 / totalDates) * 100;
 
           return (
             <div
@@ -242,9 +244,9 @@ export function Timeline() {
             >
               {/* Dates in the month */}
               <div className="flex w-full justify-evenly">
-                {datesInMonth.map((dateObj) => {
+                {datesInMonth?.map((dateObj) => {
                   const { date } = dateObj;
-                  const selected = selectedDate.date === date;
+                  const selected = selectedDate?.date === date;
 
                   return (
                     <button

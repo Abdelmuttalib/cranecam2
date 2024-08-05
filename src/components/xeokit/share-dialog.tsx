@@ -83,7 +83,7 @@ export function ShareDialog() {
                     as="h3"
                     className="text-lg font-medium leading-6"
                   >
-                    Share "Construction site"
+                    Share Construction site
                   </Dialog.Title>
                   <div className="mt-6 flex items-center gap-x-2">
                     <Input

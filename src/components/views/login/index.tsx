@@ -29,9 +29,7 @@ import Link from "next/link";
 import { appPaths } from "@/config/app";
 
 export function LoginPageView() {
-  const { data: session, status } = useSession();
-
-  console.log("session", session);
+  const { data: session } = useSession();
 
   return (
     <>
@@ -157,7 +155,7 @@ function LoginForm() {
                 Don’t have an account yet?{" "}
                 <Link
                   href={appPaths.register}
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  className="font-medium text-[#0191ea] hover:underline dark:text-[#0191ea]"
                 >
                   Sign up
                 </Link>

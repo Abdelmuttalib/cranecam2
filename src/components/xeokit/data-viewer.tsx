@@ -1,7 +1,7 @@
 import { DateTimeline } from "./data-select-timeline";
 import { RenderViewProvider } from "@/context/render-view";
 // import { Viewer, XeokitViewer } from "./viewer";
-import { CalendarIcon, ChevronRight } from "lucide-react";
+import { CalendarIcon, ChevronRight, ShareIcon } from "lucide-react";
 import { ShareDialog } from "./share-dialog";
 import { useRenderView } from "@/hooks/use-render-view";
 import { formatDate } from "@/lib/date";
@@ -50,17 +50,106 @@ export default function DataView({ data }: DataViewProps) {
   );
 }
 
+import * as React from "react";
+
 import { ReactCompareSlider } from "react-compare-slider";
+import { CompareIcon, XIcon } from "../icons";
+import { Button } from "../ui/button";
 
 function Viewer3D() {
-  const { compareMode } = useRenderView();
+  const { compareMode, setCompareMode } = useRenderView();
+
+  const [portrait, setPortrait] = React.useState(false);
 
   console.log("compareMode", compareMode);
+
+  // #141414
 
   return (
     <>
       {compareMode ? (
-        <div className="flex h-screen w-screen">
+        <div className="flex h-screen w-screen flex-col">
+          <div className="flex h-12 w-full items-center justify-between bg-[#3d5afe] px-4">
+            <div className="flex items-center gap-x-4">
+              <div className="flex h-full items-center gap-x-4">
+                <CompareIcon className="w-6" />
+                <div className="h-[32px] w-0.5 bg-white text-red-400"></div>
+                <div>
+                  <p className="font-medium">Compare mode</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex gap-x-6 text-white">
+              <Button
+                leftIcon={
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 16 16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                    className="w-[18px]"
+                    fill="currentColor"
+                  >
+                    <path d="M8.5 2.5h-1v11h1v-11Z"></path>
+                    <path d="M9 2H7v12h2V2Z"></path>
+                    <path d="M14 3h-4v1h3v8h-3v1h4V3Z"></path>
+                    <path d="M2.5 3.5h3-3v9-9Z"></path>
+                    <path d="M6 3H2v10h4v-1H3V4h3V3Z"></path>
+                  </svg>
+                }
+                size="xs"
+                variant="ghost"
+                onClick={() => {
+                  setPortrait(false);
+                }}
+              >
+                Split horizontally
+              </Button>
+              <Button
+                leftIcon={
+                  <svg
+                    width="100%"
+                    height="100%"
+                    viewBox="0 0 16 16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                    className="w-[18px]"
+                    fill="currentColor"
+                  >
+                    <path d="M13.5 7.5h-11v1h11v-1Z"></path>
+                    <path d="M14 7H2v2h12V7Z"></path>
+                    <path d="M13 2H3v4h1V3h8v3h1V2Z"></path>
+                    <path d="M13 10h-1v3H4v-3H3v4h10v-4Z"></path>
+                  </svg>
+                }
+                size="xs"
+                variant="ghost"
+                onClick={() => {
+                  setPortrait(true);
+                }}
+              >
+                Split vertically
+              </Button>
+              <Button
+                leftIcon={<ShareIcon className="w-4" />}
+                size="xs"
+                variant="ghost"
+              >
+                Share
+              </Button>
+              <Button
+                leftIcon={<XIcon className="w-4" />}
+                size="xs"
+                variant="ghost"
+                onClick={() => setCompareMode(false)}
+              >
+                Exit compare mode
+              </Button>
+            </div>
+          </div>
           <ReactCompareSlider
             boundsPadding={0}
             itemOne={<CompareXeo index={1} />}
@@ -70,7 +159,9 @@ function Viewer3D() {
             style={{
               height: "100%",
               width: "100%",
+              position: "relative",
             }}
+            portrait={portrait}
           />
           {/* <ResizablePanelGroup direction="horizontal" className="h-full w-full">
             <ResizablePanel defaultSize={50}>

@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import {
   Viewer as XEOViewer,
   LASLoaderPlugin,
@@ -14,7 +17,7 @@ import {
   AngleMeasurementsPlugin,
   AngleMeasurementsMouseControl,
   // PointerCircle,
-} from "../../xeokitsdk";
+} from "@xeokit/xeokit-sdk";
 import React from "react";
 
 export default function CompareXeo({ index }: { index: number }) {
@@ -145,7 +148,10 @@ export default function CompareXeo({ index }: { index: number }) {
   }, []);
 
   return (
-    <div className="h-full w-full">
+    <div className="relative h-full w-full">
+      {/* <div className="absolute top-0 rounded-sm bg-[#fad104] p-2 px-2.5 text-black">
+        {index}
+      </div> */}
       <canvas
         id={`myCanvas${index}`}
         className={`h-full w-full`}

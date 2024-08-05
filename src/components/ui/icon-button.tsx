@@ -40,6 +40,9 @@ const iconButtonVariants = cva(
         dark: "bg-gray-900 text-white duration-150 ease-linear hover:bg-gray-900/90 active:bg-gray-700 disabled:bg-gray-700 focus:ring-primary-300",
         ghost: "hover:bg-gray-hover dark:hover:bg-layer-2 text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+
+        material:
+          "bg-[#303030] text-white hover:bg-[#404040] active:bg-[#202020]",
       },
       size: {
         default: "w-11 h-11",

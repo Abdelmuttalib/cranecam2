@@ -1,0 +1,266 @@
+
+> cranecam@0.1.0 build /home/abdelmuttalib/dev/cranecam
+> next build
+
+  ▲ Next.js 14.2.5
+  - Environments: .env
+
+   Linting and checking validity of types ...
+
+./src/components/layout/index.tsx
+16:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+20:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+150:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+150:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+314:12  Warning: A record is preferred over an index signature.  @typescript-eslint/consistent-indexed-object-style
+548:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+548:23  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./src/components/layout/login.tsx
+43:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/layout/sidebar.tsx
+107:21  Warning: 'asPath' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ui/form.tsx
+16:10  Warning: 'Typography' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ui/select.tsx
+6:10  Warning: 'buttonVariants' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ui/textarea.tsx
+2:10  Warning: 'cva' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/user/user-menu.tsx
+92:14  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+102:18  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+130:10  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+
+./src/components/views/home/index.tsx
+30:10  Warning: 'AuthShowcase' is defined but never used.  @typescript-eslint/no-unused-vars
+32:9  Warning: 'hello' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/views/login/index.tsx
+23:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+32:17  Warning: 'session' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/views/register/index.tsx
+4:10  Warning: 'signIn' is defined but never used.  @typescript-eslint/no-unused-vars
+5:15  Warning: 'SubmitHandler' is defined but never used.  @typescript-eslint/no-unused-vars
+22:10  Warning: 'LogIn' is defined but never used.  @typescript-eslint/no-unused-vars
+23:1  Warning: Imports "RegisterFormFields" are only used as type.  @typescript-eslint/consistent-type-imports
+23:10  Warning: 'LoginFormFields' is defined but never used.  @typescript-eslint/no-unused-vars
+24:10  Warning: 'loginFormSchema' is defined but never used.  @typescript-eslint/no-unused-vars
+28:10  Warning: 'ButtonLink' is defined but never used.  @typescript-eslint/no-unused-vars
+53:23  Warning: 'data' is defined but never used. Allowed unused args must match /^_/u.  @typescript-eslint/no-unused-vars
+57:15  Warning: 'error' is defined but never used. Allowed unused args must match /^_/u.  @typescript-eslint/no-unused-vars
+
+./src/components/xeokit/data-select-timeline.tsx
+9:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+17:12  Warning: A record is preferred over an index signature.  @typescript-eslint/consistent-indexed-object-style
+257:23  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+257:23  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./src/components/xeokit/data-viewer.tsx
+1:10  Warning: 'DateTimeline' is defined but never used.  @typescript-eslint/no-unused-vars
+8:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+11:3  Warning: 'ResizableHandle' is defined but never used.  @typescript-eslint/no-unused-vars
+12:3  Warning: 'ResizablePanel' is defined but never used.  @typescript-eslint/no-unused-vars
+13:3  Warning: 'ResizablePanelGroup' is defined but never used.  @typescript-eslint/no-unused-vars
+19:7  Warning: 'XeokitViewer' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+190:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+190:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./src/components/xeokit/viewer.tsx
+9:11  Warning: 'selectedDate' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+248:3  Warning: 'FastNavPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+372:11  Warning: 'selectedDate' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+372:25  Warning: 'compareMode' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+374:9  Warning: 'viewer' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+437:12  Warning: 'FloatComponent' is defined but never used.  @typescript-eslint/no-unused-vars
+451:12  Warning: 'onAddAnnotation' is defined but never used.  @typescript-eslint/no-unused-vars
+463:11  Warning: 'annotation' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+484:26  Warning: 'setMesurementMode' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+486:26  Warning: 'coords' is defined but never used. Allowed unused args must match /^_/u.  @typescript-eslint/no-unused-vars
+486:34  Warning: 'pickResult' is defined but never used. Allowed unused args must match /^_/u.  @typescript-eslint/no-unused-vars
+555:11  Warning: 'i' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1069:6  Warning: React Hook React.useEffect has a missing dependency: 'onViewerClick'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+1550:8  Warning: 'dynamic' is defined but never used.  @typescript-eslint/no-unused-vars
+1551:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+1585:11  Warning: 't0' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1599:13  Warning: 't1' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1647:11  Warning: 'pointsMaterial' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1672:9  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+1672:9  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./src/components/xeokit/xeo-compare.tsx
+6:3  Warning: 'LASLoaderPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+7:3  Warning: 'FastNavPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+8:3  Warning: 'AnnotationsPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+9:3  Warning: 'TreeViewPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+11:3  Warning: 'DistanceMeasurementsPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+12:3  Warning: 'DistanceMeasurementsMouseControl' is defined but never used.  @typescript-eslint/no-unused-vars
+14:3  Warning: 'ContextMenu' is defined but never used.  @typescript-eslint/no-unused-vars
+15:3  Warning: 'PointerLens' is defined but never used.  @typescript-eslint/no-unused-vars
+16:3  Warning: 'SkyboxesPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+17:3  Warning: 'AngleMeasurementsPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+18:3  Warning: 'AngleMeasurementsMouseControl' is defined but never used.  @typescript-eslint/no-unused-vars
+148:6  Warning: React Hook React.useEffect has a missing dependency: 'index'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/components/xeokit/xeo.tsx
+25:3  Warning: 'LASLoaderPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+26:3  Warning: 'FastNavPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+35:3  Warning: 'SkyboxesPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+48:3  Warning: 'EyeIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+49:3  Warning: 'LogIn' is defined but never used.  @typescript-eslint/no-unused-vars
+52:3  Warning: 'ZoomIn' is defined but never used.  @typescript-eslint/no-unused-vars
+53:3  Warning: 'ZoomOut' is defined but never used.  @typescript-eslint/no-unused-vars
+56:3  Warning: 'LineIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+57:3  Warning: 'CircleIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+59:3  Warning: 'PolygonIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+72:10  Warning: 'ThemeSelect' is defined but never used.  @typescript-eslint/no-unused-vars
+85:8  Warning: 'Script' is defined but never used.  @typescript-eslint/no-unused-vars
+87:3  Warning: 'Accordion' is defined but never used.  @typescript-eslint/no-unused-vars
+88:3  Warning: 'AccordionContent' is defined but never used.  @typescript-eslint/no-unused-vars
+89:3  Warning: 'AccordionItem' is defined but never used.  @typescript-eslint/no-unused-vars
+90:3  Warning: 'AccordionTrigger' is defined but never used.  @typescript-eslint/no-unused-vars
+94:10  Warning: 'generateAvatarUrl' is defined but never used.  @typescript-eslint/no-unused-vars
+95:10  Warning: 'Avatar' is defined but never used.  @typescript-eslint/no-unused-vars
+95:18  Warning: 'AvatarFallback' is defined but never used.  @typescript-eslint/no-unused-vars
+95:34  Warning: 'AvatarImage' is defined but never used.  @typescript-eslint/no-unused-vars
+119:10  Warning: 'angleMeasurementsPlugin' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+342:11  Warning: 'coords' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+363:10  Warning: 'renderIndex' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+365:10  Warning: 'cameraPosition' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+412:16  Warning: 'ondddd' is defined but never used.  @typescript-eslint/no-unused-vars
+823:11  Warning: 'i' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1162:6  Warning: React Hook React.useEffect has missing dependencies: 'onViewerClick' and 'viewerState'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+1184:12  Warning: 'destroyAllMeasurements' is defined but never used.  @typescript-eslint/no-unused-vars
+1192:10  Warning: 'measurements' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1204:12  Warning: 'getSceneObjects' is defined but never used.  @typescript-eslint/no-unused-vars
+1214:10  Warning: 'sceneObjects' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1216:3  Warning: All getSceneObjects signatures should be adjacent.  @typescript-eslint/adjacent-overload-signatures
+1342:12  Warning: 'onZoomIn' is defined but never used.  @typescript-eslint/no-unused-vars
+1351:12  Warning: 'onZoomOut' is defined but never used.  @typescript-eslint/no-unused-vars
+1356:13  Warning: 'cEye' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1357:13  Warning: 'cUp' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+1368:12  Warning: 'onRender' is defined but never used.  @typescript-eslint/no-unused-vars
+1868:12  Warning: 'getMeasurementVisibility' is defined but never used.  @typescript-eslint/no-unused-vars
+1874:12  Warning: 'onLookCamera' is defined but never used.  @typescript-eslint/no-unused-vars
+1989:31  Warning: 'objectsData' is defined but never used. Allowed unused args must match /^_/u.  @typescript-eslint/no-unused-vars
+1990:19  Warning: 'setObjects' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+2000:12  Warning: 'getObjectVisibility' is defined but never used.  @typescript-eslint/no-unused-vars
+2006:12  Warning: 'onLookCamera' is defined but never used.  @typescript-eslint/no-unused-vars
+2159:12  Warning: 'onRemoveMeasumenet' is defined but never used.  @typescript-eslint/no-unused-vars
+2168:12  Warning: 'onHideAnnotation' is defined but never used.  @typescript-eslint/no-unused-vars
+2172:12  Warning: 'onShowAnnotation' is defined but never used.  @typescript-eslint/no-unused-vars
+2184:12  Warning: 'getAnnotationVisibility' is defined but never used.  @typescript-eslint/no-unused-vars
+2190:12  Warning: 'onLookCamera' is defined but never used.  @typescript-eslint/no-unused-vars
+2224:12  Warning: 'setLabel' is defined but never used.  @typescript-eslint/no-unused-vars
+2326:17  Warning: 'session' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+2333:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+2333:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+2385:3  Warning: 'DropdownMenuLabel' is defined but never used.  @typescript-eslint/no-unused-vars
+2386:3  Warning: 'DropdownMenuPortal' is defined but never used.  @typescript-eslint/no-unused-vars
+2387:3  Warning: 'DropdownMenuSeparator' is defined but never used.  @typescript-eslint/no-unused-vars
+2388:3  Warning: 'DropdownMenuShortcut' is defined but never used.  @typescript-eslint/no-unused-vars
+2389:3  Warning: 'DropdownMenuSub' is defined but never used.  @typescript-eslint/no-unused-vars
+2390:3  Warning: 'DropdownMenuSubContent' is defined but never used.  @typescript-eslint/no-unused-vars
+2391:3  Warning: 'DropdownMenuSubTrigger' is defined but never used.  @typescript-eslint/no-unused-vars
+2432:10  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/context/render-view.tsx
+1:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+
+./src/hooks/use-xeokit.tsx
+4:3  Warning: 'LASLoaderPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+5:3  Warning: 'FastNavPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+7:3  Warning: 'TreeViewPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+8:3  Warning: 'XKTLoaderPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+12:3  Warning: 'ContextMenu' is defined but never used.  @typescript-eslint/no-unused-vars
+14:3  Warning: 'SkyboxesPlugin' is defined but never used.  @typescript-eslint/no-unused-vars
+15:3  Warning: 'ViewerConfiguration' is defined but never used.  @typescript-eslint/no-unused-vars
+33:6  Warning: 'XeokitProviderProps' is defined but never used.  @typescript-eslint/no-unused-vars
+69:10  Warning: 'annotationsPlugin' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+72:10  Warning: 'distanceMeasurementsPlugin' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+76:5  Warning: 'distanceMeasurementsMouseControl' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/user.ts
+1:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+
+./src/pages/_app.tsx
+11:8  Warning: 'TailwindIndicator' is defined but never used.  @typescript-eslint/no-unused-vars
+11:29  Warning: 'UICustomizer' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/index.tsx
+2:10  Warning: 'getServerAuthSession' is defined but never used.  @typescript-eslint/no-unused-vars
+3:10  Warning: 'GetServerSideProps' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/login.tsx
+3:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+
+./src/pages/register.tsx
+3:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+
+./src/schema/types.ts
+1:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+2:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+
+./src/server/auth.ts
+1:10  Warning: 'PrismaAdapter' is defined but never used.  @typescript-eslint/no-unused-vars
+8:15  Warning: 'Adapter' is defined but never used.  @typescript-eslint/no-unused-vars
+9:8  Warning: 'DiscordProvider' is defined but never used.  @typescript-eslint/no-unused-vars
+13:10  Warning: 'env' is defined but never used.  @typescript-eslint/no-unused-vars
+16:1  Warning: All imports in the declaration are only used as types. Use `import type`.  @typescript-eslint/consistent-type-imports
+63:13  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+64:13  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+65:13  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+76:15  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+77:15  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+78:15  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+100:13  Warning: Prefer using an optional chain expression instead, as it's more concise and easier to read.  @typescript-eslint/prefer-optional-chain
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+   Creating an optimized production build ...
+ ⚠ Compiled with warnings
+
+./node_modules/.pnpm/@xeokit+xeokit-sdk@2.6.31/node_modules/@xeokit/xeokit-sdk/dist/xeokit-sdk.es.js
+Module not found: Can't resolve 'asciify-image' in '/home/abdelmuttalib/dev/cranecam/node_modules/.pnpm/@xeokit+xeokit-sdk@2.6.31/node_modules/@xeokit/xeokit-sdk/dist'
+
+Import trace for requested module:
+./node_modules/.pnpm/@xeokit+xeokit-sdk@2.6.31/node_modules/@xeokit/xeokit-sdk/dist/xeokit-sdk.es.js
+./src/components/xeokit/xeo-compare.tsx
+./src/components/xeokit/data-viewer.tsx
+./src/components/views/home/index.tsx
+
+ ✓ Compiled successfully
+   Collecting page data ...
+   Generating static pages (0/8) ...
+compareMode false
+compareMode false
+   Generating static pages (2/8) 
+   Generating static pages (4/8) 
+   Generating static pages (6/8) 
+ ✓ Generating static pages (8/8)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      25.6 kB         159 kB
+├   /_app                                  0 B             122 kB
+├ ○ /404                                   181 B           122 kB
+├ ƒ /api/auth/[...nextauth]                0 B             122 kB
+├ ƒ /api/trpc/[trpc]                       0 B             122 kB
+├ ƒ /login                                 1.34 kB         162 kB
+├ ƒ /register                              1.31 kB         162 kB
+└ ○ /xeo (462 ms)                          2.5 kB          125 kB
++ First Load JS shared by all              141 kB
+  ├ chunks/framework-a85322f027b40e20.js   45.2 kB
+  ├ chunks/main-233e21f71abf4c3a.js        32.7 kB
+  ├ chunks/pages/_app-6b3e1b25ff4dd1f7.js  42.2 kB
+  ├ css/0153b21bbe33f183.css               19 kB
+  └ other shared chunks (total)            1.94 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

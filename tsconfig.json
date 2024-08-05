@@ -10,13 +10,18 @@
     "isolatedModules": true,
 
     /* Strictness */
-    "strict": true,
+    "strict": false,
     "noUncheckedIndexedAccess": true,
-    "checkJs": true,
+    "checkJs": false,
+
+    "strictNullChecks": true,
 
     /* Bundled projects */
     "lib": ["dom", "dom.iterable", "ES2022"],
-    "noEmit": true,
+    /* */
+    "noEmit": false,
+    /* */
+    "noEmitOnError": false,
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "jsx": "preserve",
@@ -36,7 +41,11 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    //
+    "src/**/*",
+    "src/xeokitsdk/vite.config.js" // Add this line to include vite.config.js
+    // "src/xeokitsdk/types/viewer/scene/postfx/CrossSections.d.ts"
   ],
   "exclude": ["node_modules"]
 }

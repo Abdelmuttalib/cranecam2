@@ -36,6 +36,9 @@ const buttonVariants = cva(
         ghost: "hover:bg-gray-hover dark:hover:bg-layer-2 text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         transparent: "bg-transparent text-foreground",
+
+        material:
+          "bg-[#303030] text-white hover:bg-[#404040] active:bg-[#202020]",
       },
       size: {
         default: "px-4 h-10",
@@ -80,7 +83,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={cn(buttonVariants({ variant, size, className }), {
           "inline-flex items-center justify-center gap-x-1.5":
-            leftIcon || rightIcon,
+            leftIcon ?? rightIcon,
         })}
         type={type ?? "button"}
         ref={ref}
@@ -111,7 +114,7 @@ const ButtonLink = React.forwardRef<HTMLAnchorElement, ButtonLinkProps>(
       <Link
         className={cn(buttonVariants({ variant, size, className }), {
           "inline-flex items-center justify-center gap-x-2":
-            iconLeft || iconRight,
+            iconLeft ?? iconRight,
         })}
         ref={ref}
         {...props}

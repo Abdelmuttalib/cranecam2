@@ -294,3 +294,20 @@ export function UserIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function TrashIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid meet"
+      focusable="false"
+      fill="currentColor"
+      className={cn("h-[22px] w-[22px]", className)}
+    >
+      <path d="M3 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6H3v6Zm11-9h-3.5l-1-1h-3l-1 1H2v2h12V3Z"></path>
+    </svg>
+  );
+}

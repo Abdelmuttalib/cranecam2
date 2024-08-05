@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import DataView from "@/components/xeokit/data-viewer";
 import { exampleData } from "@/data";
 import { api } from "@/lib/api";
+import { generateAvatarUrl } from "@/lib/avatar";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 export function HomePageView() {
@@ -34,10 +35,6 @@ function AuthShowcase() {
     undefined, // no input
     { enabled: sessionData?.user !== undefined },
   );
-
-  function generateAvatarUrl(t: string) {
-    return `https://avatar.vercel.sh/${t}`;
-  }
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">

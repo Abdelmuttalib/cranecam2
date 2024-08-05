@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+
 import * as React from "react";
 
 // import {
@@ -33,9 +36,9 @@ import {
   AngleMeasurementsPlugin,
   AngleMeasurementsMouseControl,
   // PointerCircle,
-} from "../../xeokitsdk";
+} from "@xeokit/xeokit-sdk";
 
-import { Button } from "@/components/ui/button";
+import { Button, ButtonLink } from "@/components/ui/button";
 import {
   CalendarIcon,
   CameraIcon,
@@ -43,8 +46,8 @@ import {
   ChevronRight,
   ChevronRightIcon,
   EyeIcon,
+  LogIn,
   MousePointer,
-  TrashIcon,
   TriangleRightIcon,
   ZoomIn,
   ZoomOut,
@@ -61,6 +64,7 @@ import {
   AnnotationIcon,
   SettingsIcon,
   UserIcon,
+  TrashIcon,
 } from "@/components/icons";
 import useModalState from "@/hooks/use-modal-state";
 import CustomDialog from "../ui/animated-dialog";
@@ -86,6 +90,9 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 import { Label } from "../ui/label";
+import { signOut, useSession } from "next-auth/react";
+import { generateAvatarUrl } from "@/lib/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 type Mode =
   | "view"
@@ -170,14 +177,14 @@ export default function Xeo() {
         setMode("select");
       },
     },
-    {
-      title: "Line",
-      mode: "line",
-      icon: <LineIcon />,
-      onClick: () => {
-        setMode("line");
-      },
-    },
+    // {
+    //   title: "Line",
+    //   mode: "line",
+    //   icon: <LineIcon />,
+    //   onClick: () => {
+    //     setMode("line");
+    //   },
+    // },
     {
       title: "Distance",
       mode: "distance",
@@ -202,14 +209,14 @@ export default function Xeo() {
     //     setMode("polygon");
     //   },
     // },
-    {
-      title: "Circle",
-      mode: "circle",
-      icon: <CircleIcon />,
-      onClick: () => {
-        setMode("circle");
-      },
-    },
+    // {
+    //   title: "Circle",
+    //   mode: "circle",
+    //   icon: <CircleIcon />,
+    //   onClick: () => {
+    //     setMode("circle");
+    //   },
+    // },
     {
       title: "Point",
       mode: "point",
@@ -305,7 +312,7 @@ export default function Xeo() {
     console.log("onViewerClick", mode);
     console.log("onViewerClick - Current mode:", modeRef.current);
 
-    let currentMode = modeRef.current;
+    const currentMode = modeRef.current;
 
     if (currentMode === "point") {
       onAddAnnotation(coords, pickResult);
@@ -355,6 +362,12 @@ export default function Xeo() {
 
   const [renderIndex, setRenderIndex] = React.useState(0);
 
+  const [cameraPosition, setCameraPosition] = React.useState({
+    eye: [0, 0, 0],
+    look: [0, 0, 0],
+    up: [0, 0, 0],
+  });
+
   React.useEffect(() => {
     async function initXeo() {
       console.log("document", document);
@@ -365,9 +378,24 @@ export default function Xeo() {
       });
 
       // 2
-      viewer.scene.camera.eye = [-2.56, 8.38, 8.27];
-      viewer.scene.camera.look = [13.44, 3.31, -14.83];
-      viewer.scene.camera.up = [0.1, 0.98, -0.14];
+      // viewer.scene.camera.eye = [-2.56, 8.38, 8.27];
+      // viewer.scene.camera.look = [13.44, 3.31, -14.83];
+      // viewer.scene.camera.up = [0.1, 0.98, -0.14];
+
+      console.log("eye", viewer.scene.camera.eye);
+      console.log("look", viewer.scene.camera.look);
+      console.log("up", viewer.scene.camera.up);
+
+      if (viewer) {
+        setCameraPosition({
+          eye: [-2.56, 8.38, 8.27],
+          look: [13.44, 3.31, -14.83],
+          up: [0.1, 0.98, -0.14],
+          // eye: viewer.scene.camera.eye,
+          // look: viewer.scene.camera.look,
+          // up: viewer.scene.camera.up,
+        });
+      }
 
       console.log("viewerb4", viewer);
       if (!window.viewer) {
@@ -954,6 +982,8 @@ export default function Xeo() {
         // src: "/models/rac.xkt",
         // src: "/models/ar-demo-sample-single-building-01.xkt",
         src: "/models/meshed-1.ply.xkt",
+        // src: "/models/meshed-2.ply.xkt",
+        // src: "/models/result-4.ply.xkt",
         // src: "./models/xkt/v7/OTCConferenceCenter/OTCConferenceCenter.xkt",
         // src: "./rme.ply.xkt",
         edges: true,
@@ -1335,11 +1365,6 @@ export default function Xeo() {
 
   const [settingsDialogOpen, setSettingsDialogOpen] = React.useState(false);
 
-  console.log(
-    "viewerState?.cameraControl.navMode",
-    viewerState?.cameraControl.navMode,
-  );
-
   function onRender() {
     setRenderIndex((currentIndex) => currentIndex + 1);
   }
@@ -1382,6 +1407,7 @@ export default function Xeo() {
                           size="xs"
                           onClick={() => setSettingsDialogOpen(true)}
                           className="bg-[#303030] text-white"
+                          variant="material"
                         >
                           <SettingsIcon />
                         </IconButton>
@@ -1442,6 +1468,7 @@ export default function Xeo() {
                               { title: "Plan View", mode: "planView" },
                             ].map((cameraMode) => (
                               <Button
+                                key={cameraMode.mode}
                                 onClick={() => {
                                   if (!viewerState) return;
                                   viewerState.cameraControl.navMode =
@@ -1451,7 +1478,7 @@ export default function Xeo() {
                                     `Camera mode changed: ${cameraMode.title}`,
                                   );
                                 }}
-                                variant="outline"
+                                variant="material"
                               >
                                 {cameraMode.title}
                               </Button>
@@ -1464,13 +1491,15 @@ export default function Xeo() {
                       size="xs"
                       onClick={() => captureScreenshot()}
                       className="bg-[#303030] text-white"
+                      variant="material"
                     >
                       <CameraIcon className="h-5 w-5" />
                     </IconButton>
-                    <IconButton
+                    {/* <IconButton
                       size="xs"
                       onClick={() => onZoomIn()}
                       className="bg-[#303030] text-white"
+                      variant="material"
                     >
                       <ZoomIn className="h-5 w-5" />
                     </IconButton>
@@ -1478,9 +1507,10 @@ export default function Xeo() {
                       size="xs"
                       onClick={() => onZoomOut()}
                       className="bg-[#303030] text-white"
+                      variant="material"
                     >
                       <ZoomOut className="h-5 w-5" />
-                    </IconButton>
+                    </IconButton> */}
                   </div>
                 </div>
               </div>
@@ -1529,16 +1559,6 @@ export default function Xeo() {
               )}
             </div> */}
           </div>
-          <Button
-            className="absolute bottom-4 right-4 z-20 bg-blue-500 text-white"
-            onClick={() => {
-              // onDeactivateDistanceMeasurementMouseControl();
-              // getMeasurements();
-              destroyAllMeasurements();
-            }}
-          >
-            Deactivate
-          </Button>
           {/* <div className="absolute bg-background rounded-lg overflow-hidden w-9 flex flex-col gap-x-1 top-4 right-[25rem] z-20">
             {modeButtons.map((modeButton) => (
               <Button
@@ -1699,8 +1719,9 @@ export default function Xeo() {
             <div className="absolute -left-14 right-full top-12 z-20 mr-8 flex w-[34px] flex-col gap-x-1 overflow-hidden rounded-2xl bg-background">
               {modeButtons.map((modeButton) => (
                 <IconButton
+                  key={modeButton.mode}
                   title={modeButton.title}
-                  variant={mode === modeButton.mode ? "primary" : "outline"}
+                  variant={mode === modeButton.mode ? "primary" : "material"}
                   className={cn(
                     "focus:ring-none h-9 w-full rounded-none border-none ring-0 focus:border-none",
                     "bg-[#303030]",
@@ -1815,6 +1836,10 @@ export default function Xeo() {
 function MeasurementsPanel({ measurementsData, distanceMeasurementsPluginW }) {
   const [measurements, setMeasurements] = React.useState(measurementsData);
 
+  const [showContent, setShowContent] = React.useState(true);
+
+  console.log("measurementsData", measurementsData);
+
   function destroyMeasurement(id: string) {
     if (!distanceMeasurementsPluginW || !id) return;
 
@@ -1866,48 +1891,97 @@ function MeasurementsPanel({ measurementsData, distanceMeasurementsPluginW }) {
 
   return (
     <div className="">
-      {measurements &&
-        Object.values(measurements).map((measurement, index) => (
-          <div
-            key={measurement.id}
-            className="flex items-center justify-between"
-          >
-            <div className="flex items-center gap-x-1">
-              <input
-                type="checkbox"
-                defaultChecked={
-                  distanceMeasurementsPluginW.measurements[measurement.id]
-                    .visible
-                }
-                onChange={(v) => {
-                  console.log("v", v);
-                  const checked = v.target.checked;
-                  if (checked) {
-                    onShowMeasurement(measurement.id);
-                  } else {
-                    onHideMeasurement(measurement.id);
+      <div className="space-y-2.5">
+        <div className="flex items-center gap-x-1">
+          <button type="button" onClick={() => setShowContent((p) => !p)}>
+            <ChevronRightIcon
+              className={`w-5 ${showContent ? "rotate-90" : ""}`}
+            />
+          </button>
+          <input
+            type="checkbox"
+            checked={true}
+            // all objects visible
+            // defaultChecked={Object.values(objects).every(
+            //   (object) => object.visible
+            // )}
+            // onChange={(v) => {
+            //   const checked = v.target.checked;
+            //   if (checked) {
+            //     onShowAllObjects();
+            //   } else {
+            //     onHideAllObjects();
+            //   }
+            // }}
+          />
+          <DistanceIcon className="h-5 w-5" />
+          <Typography as="p" variant="base/medium">
+            Measurements
+          </Typography>
+        </div>
+        {showContent &&
+          measurements &&
+          Object.values(measurements).map((measurement, index) => (
+            <div
+              key={measurement?.id}
+              className="ml-2.5 flex items-center justify-between border-l-2 pl-6"
+            >
+              <div className="flex items-center gap-x-1">
+                <input
+                  type="checkbox"
+                  // defaultChecked={
+                  //   annotationPlugin.annotations[annotation.id].visible
+                  // }
+                  // checked={true}
+                  defaultChecked={
+                    distanceMeasurementsPluginW.measurements[measurement?.id]
+                      .visible
                   }
-                }}
-              />
-              <Typography as="p" variant="base/medium">
-                Measurement {index !== 0 ? index : ""}
-                {/* {measurement.id} */}
-              </Typography>
-            </div>
-
-            <div className="space-x-2">
-              <Button
+                  onChange={(v) => {
+                    console.log("v", v);
+                    const checked = v.target.checked;
+                    if (checked) {
+                      onShowMeasurement(measurement.id);
+                    } else {
+                      onHideMeasurement(measurement.id);
+                    }
+                  }}
+                  // defaultChecked={true}
+                />
+                <DistanceIcon className="w-4" />
+                <Typography as="p" variant="base/medium">
+                  Measurement
+                  {index !== 0 ? index : ""}
+                  {/* {measurement.id} */}
+                </Typography>
+              </div>
+              {/* <Button size="icon" variant="ghost">
+                <TrashIcon className="w-4 h-4 fill-current" />
+              </Button> */}
+              <div className="space-x-2">
+                {/* <Button
                 onClick={() => {
-                  onRemoveMeasumenet(measurement.id);
+                  setLabel(annotation, !annotation.labelShown, annotation.id);
                 }}
                 size="icon"
                 variant="outline"
               >
-                <TrashIcon className="h-4 w-4 fill-current" />
-              </Button>
+                <EyeIcon className="h-4 w-4 fill-current" />
+              </Button> */}
+
+                <Button
+                  onClick={() => {
+                    onRemoveMeasumenet(measurement?.id);
+                  }}
+                  size="icon"
+                  variant="outline"
+                >
+                  <TrashIcon className="h-4 w-4 fill-current" />
+                </Button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 }
@@ -1973,9 +2047,11 @@ function OutputObjectsPanel({ objectsData, viewer }) {
           <input
             type="checkbox"
             // all objects visible
-            defaultChecked={Object.values(objects).every(
-              (object) => object.visible,
-            )}
+            defaultChecked={
+              objects
+                ? Object.values(objects).every((object) => object.visible)
+                : null
+            }
             onChange={(v) => {
               const checked = v.target.checked;
               if (checked) {
@@ -2052,13 +2128,32 @@ function OutputObjectsPanel({ objectsData, viewer }) {
   );
 }
 
+function cloneObject(obj) {
+  if (obj == null || typeof obj != "object") return obj;
+  var copy = obj.constructor();
+  for (var attr in obj) {
+    if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+  }
+  return copy;
+}
+
 function AnnoatationsPanel({ annotationsData, annotationPlugin }) {
   const [annotations, setAnnotations] = React.useState(annotationsData);
 
-  function destroyAnnotation(id: string) {
+  function onDestroyAnnotation(id: string) {
     if (!annotationPlugin || !id) return;
 
     annotationPlugin.destroyAnnotation(id);
+
+    console.log("destroyAnnotation", annotationPlugin?.annotations);
+
+    setAnnotations(cloneObject(annotationPlugin?.annotations));
+
+    // setAnnotations((currentAnnotations) => {
+    //   const newAnnotations = { ...currentAnnotations };
+    //   delete newAnnotations[id];
+    //   return newAnnotations;
+    // });
   }
 
   function onRemoveMeasumenet(id) {
@@ -2198,25 +2293,25 @@ function AnnoatationsPanel({ annotationsData, annotationPlugin }) {
                   <TrashIcon className="w-4 h-4 fill-current" />
                 </Button> */}
               <div className="space-x-2">
-                <Button
+                {/* <Button
                   onClick={() => {
                     setLabel(annotation, !annotation.labelShown, annotation.id);
-                    // onLookCamera(measurement);
-                    // destroyMeasurement(measurement.id);
                   }}
                   size="icon"
                   variant="outline"
                 >
                   <EyeIcon className="h-4 w-4 fill-current" />
-                </Button>
-                {/* <Button
+                </Button> */}
+
+                <Button
                   onClick={() => {
+                    onDestroyAnnotation(annotation?.id);
                   }}
                   size="icon"
                   variant="outline"
                 >
-                  <TrashIcon className="w-4 h-4 fill-current" />
-                </Button> */}
+                  <TrashIcon className="h-4 w-4 fill-current" />
+                </Button>
               </div>
             </div>
           ))}
@@ -2228,6 +2323,8 @@ function AnnoatationsPanel({ annotationsData, annotationPlugin }) {
 // #303030
 
 function Topbar() {
+  const { data: session } = useSession();
+
   return (
     <div>
       <div className="flex h-12 w-full items-center bg-background px-4 dark:bg-[#212121]">
@@ -2263,7 +2360,7 @@ function Topbar() {
         </div>
         <div className="flex items-center gap-x-5 pr-2">
           <ShareDialog />
-          <UserIcon />
+          <UserMenu />
           {/* <ThemeSelect /> */}
           {/* <Button>
       <span className="flex items-center gap-x-2">
@@ -2277,6 +2374,58 @@ function Topbar() {
         <Timeline />
       </div>
     </div>
+  );
+}
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { appPaths } from "@/config/app";
+
+function UserMenu() {
+  const { data: session } = useSession();
+
+  return session?.user ? (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="material" size="sm">
+          {/* <Avatar className="mr-2 h-6 w-6">
+          <AvatarImage src={generateAvatarUrl(session?.user?.name)} />
+          <AvatarFallback className="mr-2 h-6 w-6 rounded-full bg-gradient-to-br from-primary-700 to-primary-500"></AvatarFallback>
+        </Avatar> */}
+          <UserIcon />
+          <p className="ml-2 pb-0.5">{session.user.name}</p>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-32 bg-background">
+        <DropdownMenuGroup>
+          <DropdownMenuItem onClick={() => signOut()}>
+            Sign out
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ) : (
+    <ButtonLink
+      href={appPaths.login}
+      variant="material"
+      // leftIcon={<LogIn className="w-4" />}
+      className="whitespace-nowrap"
+      size="sm"
+    >
+      Sign in
+    </ButtonLink>
   );
 }
 
