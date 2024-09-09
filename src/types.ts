@@ -11,3 +11,13 @@ export type PotreeDate = {
   result: DateData[];
   resultTest: DateData[];
 };
+
+export type Mode =
+  | "view"
+  | "select"
+  | "line"
+  | "angle"
+  | "distance"
+  | "polygon"
+  | "circle"
+  | "point";

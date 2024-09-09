@@ -28,35 +28,13 @@ const CompareXeo = dynamic(() => import("./xeo-compare"), {
   ssr: false,
 });
 
-type DataViewProps = {
-  data: PotreeDate;
-};
-
-export default function DataView({ data }: DataViewProps) {
-  return (
-    <RenderViewProvider data={data}>
-      <>
-        {/* <XeokitViewer /> */}
-        <Viewer3D />
-      </>
-      {/* <div className="relative flex h-full min-h-screen w-full flex-col">
-        <div className="flex w-full flex-col items-center justify-center bg-zinc-950 font-semibold text-gray-100">
-          <Navbar />
-          <DateTimeline />
-        </div>
-        <Viewer />
-      </div> */}
-    </RenderViewProvider>
-  );
-}
-
 import * as React from "react";
 
 import { ReactCompareSlider } from "react-compare-slider";
 import { CompareIcon, XIcon } from "../icons";
 import { Button } from "../ui/button";
 
-function Viewer3D() {
+export function Viewer3D() {
   const { compareMode, setCompareMode } = useRenderView();
 
   const [portrait, setPortrait] = React.useState(false);

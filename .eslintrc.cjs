@@ -81,6 +81,8 @@ const config = {
     "no-var": "off",
 
     "@next/next/no-sync-scripts": "off",
+
+    "@typescript-eslint/no-redundant-type-constituents": "off",
   },
 };
 module.exports = config;
