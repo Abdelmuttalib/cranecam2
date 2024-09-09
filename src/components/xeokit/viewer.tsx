@@ -383,10 +383,6 @@ export default function XeokitViewer() {
 
   const [mode, setMode] = React.useState<Mode>("view");
 
-  React.useEffect(() => {
-    console.log("mode", mode);
-  }, [mode]);
-
   const modeButtons = [
     {
       title: "Select",
@@ -430,10 +426,6 @@ export default function XeokitViewer() {
     },
   ];
 
-  React.useEffect(() => {
-    console.log("annotationMode", annotationMode);
-  }, [annotationMode]);
-
   function FloatComponent({ children }) {
     return (
       <div className="relative flex h-screen w-screen items-center justify-center">
@@ -443,10 +435,6 @@ export default function XeokitViewer() {
       </div>
     );
   }
-
-  React.useEffect(() => {
-    console.log("isOpen", isOpen);
-  }, [isOpen]);
 
   function onAddAnnotation(coords, pickResult) {
     if (!er) {
@@ -476,8 +464,6 @@ export default function XeokitViewer() {
 
     i++;
 
-    console.log("onAddAnnotation", coords, pickResult);
-
     openModal();
   }
 
@@ -499,8 +485,6 @@ export default function XeokitViewer() {
   React.useEffect(() => {
     // async
     function initXeo() {
-      console.log("document", document);
-
       const viewer = new XEOViewer({
         canvasId: "myCanvas",
         transparent: true,
@@ -511,11 +495,9 @@ export default function XeokitViewer() {
       viewer.scene.camera.look = [13.44, 3.31, -14.83];
       viewer.scene.camera.up = [0.1, 0.98, -0.14];
 
-      console.log("viewerb4", window.viewer);
       if (!window.viewer) {
         window.viewer = viewer;
       }
-      console.log("viewera4", window.viewer);
 
       const annotations = new AnnotationsPlugin(viewer, {
         markerHTML:
@@ -557,13 +539,10 @@ export default function XeokitViewer() {
       let editedAnnotation = null;
 
       viewer.scene.input.on("mouseclicked", (coords) => {
-        console.log("coords", coords);
         const pickResult = viewer.scene.pick({
           canvasPos: coords,
           pickSurface: true, // <<------ This causes picking to find the intersection point on the entity
         });
-
-        console.log("pickResult", pickResult);
 
         if (pickResult) {
           onViewerClick(coords, pickResult);
@@ -1061,7 +1040,6 @@ export default function XeokitViewer() {
       // const customContainer = document.getElementById("myDatGuiContainer");
       // customContainer?.appendChild(gui.domElement);
 
-      console.log("viewer", viewer);
       window.viewer = viewer;
     }
 
@@ -1595,7 +1573,6 @@ export function XeokitIFCViewer() {
     });
 
     sceneModel.on("loaded", (model) => {
-      console.log("model", model);
       const t1 = performance.now();
     });
 

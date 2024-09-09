@@ -472,7 +472,6 @@ function MeasurementsPanel({ measurementsData, distanceMeasurementsPluginW }) {
                       .visible
                   }
                   onChange={(v) => {
-                    console.log("v", v);
                     const checked = v.target.checked;
                     if (checked) {
                       onShowMeasurement(measurement.id);

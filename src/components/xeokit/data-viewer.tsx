@@ -39,8 +39,6 @@ export function Viewer3D() {
 
   const [portrait, setPortrait] = React.useState(false);
 
-  console.log("compareMode", compareMode);
-
   // #141414
 
   return (

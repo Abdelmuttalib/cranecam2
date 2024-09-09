@@ -48,7 +48,6 @@ export function RenderViewProvider({
   const [compareDates, setCompareDates] = useState<PotreeDate[]>([]);
 
   function onCompare() {
-    console.log("compare");
     setCompareMode(true);
     // const firstDate = selectedDate;
     // const secondDate = processedData[1];

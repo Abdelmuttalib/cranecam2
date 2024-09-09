@@ -141,7 +141,6 @@ export default function CompareXeo({ index }: { index: number }) {
       const customContainer = document.getElementById("myDatGuiContainer");
       customContainer?.appendChild(gui.domElement);
 
-      console.log("viewer", viewer);
       window.viewer = viewer;
     }
     init();

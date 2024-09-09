@@ -170,7 +170,6 @@ export function useXeokit() {
 
   function onAddAnnotation(coords, pickResult) {
     openModal();
-    console.log("onAddAnnotation", coords, pickResult);
     if (!annotationPlugin) return;
   }
 
@@ -299,8 +298,6 @@ export function useXeokit() {
   }
 
   function onCreateAnnotation(title: string, description: string) {
-    console.log("viewer click data", viewerClickData.current);
-
     const pickResult = viewerClickData.current.pickResult;
     const coords = viewerClickData.current.coords;
 
